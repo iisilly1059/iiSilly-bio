@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="iiSilly's profile page - gamer, coder, creative.">
+    <meta name="keywords" content="iiSilly, gaming, coding, HTML, JavaScript, creative, YouTube, Spotify">
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="iiSilly's Profile - Gamer, Coder, Creative">
+    <meta property="og:description" content="Join iiSilly for gaming, coding, and creative content, promoting Petezahgames!">
+    <meta property="og:image" content="https://yourusername.github.io/avatar.png">
+    <meta property="og:url" content="https://yourusername.github.io">
+    <meta property="og:type" content="website">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>iiSilly's Profile</title>
+    <style>
+        body {
+            /* Static purple-to-black vertical gradient with space theme */
+            background: linear-gradient(to bottom, #8000ff 0%, #4b0082 30%, #2a004f 60%, #000000 100%),
+                        radial-gradient(circle at 50% 10%, rgba(128, 0, 255, 0.4), transparent 70%); /* Static nebula glow */
+            background-size: cover, cover;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #e0e0e0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Static star particles for space effect */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::before {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                        radial-gradient(circle, rgba(128, 0, 255, 0.15) 1px, transparent 1px);
+            background-size: 50px 50px, 30px 30px;
+            animation: twinkle 4s infinite;
+        }
+
+        body::after {
+            background: radial-gradient(circle, rgba(128, 0, 255, 0.2) 2px, transparent 2px);
+            background-size: 40px 40px;
+            animation: twinkle 6s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.75); /* Semi-transparent overlay */
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(128, 0, 255, 0.7); /* Purple glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1;
+        }
+
+        .content:hover {
+            box-shadow: 0 0 30px rgba(128, 0, 255, 0.9);
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #e0e0e0; /* Fallback color for the emoji and compatibility */
+        }
+
+        h1 .gradient-text {
+            background: linear-gradient(to right, #ff69b4, #ff99cc, #00b7eb, #ff99cc, #ff69b4); /* Pink-heavy gradient */
+            background-size: 200% 100%; /* Larger background for shifting effect */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease-in-out infinite; /* Animate gradient */
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        a {
+            color: #8000ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        /* Rising particle effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(128, 0, 255, 0.7); /* Purple matching YouTube logo */
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* White glow */
+            border-radius: 50%;
+            animation: rise 10s linear forwards;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-20vh);
+                opacity: 0;
+            }
+        }
+
+        /* Profile picture */
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #8000ff;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(128, 0, 255, 0.5);
+        }
+
+        /* Social icons */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #8000ff;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffffff;
+        }
+
+        /* Custom image icon styling for Petezahgames */
+        .social-icons img {
+            width: 24px; /* Matches ~1.5em at default font size */
+            height: 24px;
+            vertical-align: middle;
+            filter: brightness(0) saturate(100%) invert(23%) sepia(64%) saturate(2000%) hue-rotate(260deg); /* Adjusts to purple if needed */
+            transition: filter 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            filter: brightness(0) saturate(100%) invert(100%); /* White on hover */
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 400px) {
+            .content {
+                padding: 15px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+    <div class="content">
+        <h1>👋 <span class="gradient-text">Hey, I'm iiSilly!</span></h1>
+        <p>🎮 Gaming enthusiast who loves diving into intense sessions of COD and competitive modern FPS games!</p>
+        <p>🧑‍💻 14 years old and just getting started on my coding journey, learning HTML and JavaScript.</p>
+        <p>🔨 Currently working on my first unblocking site!</p>
+        <p>🚀 I help advertise and make links for <a href="https://petezahgames.com">petezahgames</a>.</p>
+        <p>🎥 youtube channel for advertising petezahgames <a href="https://www.youtube.com/@iiSilly_1059">YouTube</a></p>
+        <p>🎶 Vibe with my Spotify playlist for gaming! <a href="https://open.spotify.com/playlist/6Au7YBkX1YdqmKXoeqD49t?si=294aa1e4a4244d9c">Spotify</a></p>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@iiSilly_1059" title="YouTube" aria-label="Visit iiSilly's YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/playlist/6Au7YBkX1YdqmKXoeqD49t?si=294aa1e4a4244d9c" title="Spotify" aria-label="Visit iiSilly's Spotify Playlist"><i class="fab fa-spotify"></i></a>
+            <a href="https://petezahgames.com" title="Petezahgames" aria-label="Visit Petezahgames">
+                <img src="https://i.imgur.com/GoeiaOf.png" alt="Petezahgames Icon">
+            </a>
+        </div>
+    </div>
+    <script>
+        const taglines = ["Gamer", "Coder", "Creative", "Talented"];
+        let index = 0;
+        const h1Span = document.querySelector("h1 .gradient-text");
+        let currentText = "";
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100; // ms per character
+        const deletingSpeed = 50; // ms per backspace
+        const pauseTime = 1000; // Pause before deleting/after typing
+
+        function typeEffect() {
+            const currentTagline = taglines[index];
+            const baseText = "Hey, I'm iiSilly! "; // Space preserved
+
+            if (!isDeleting && charIndex <= currentTagline.length) {
+                // Typing
+                currentText = baseText + currentTagline.slice(0, charIndex);
+                h1Span.innerHTML = currentText;
+                charIndex++;
+                setTimeout(typeEffect, typingSpeed);
+            } else if (isDeleting && charIndex >= 0) {
+                // Backspacing, stop at baseText length to keep the space
+                currentText = baseText + currentTagline.slice(0, charIndex);
+                h1Span.innerHTML = currentText;
+                charIndex--;
+                setTimeout(typeEffect, deletingSpeed);
+            } else if (!isDeleting && charIndex > currentTagline.length) {
+                // Pause after typing
+                setTimeout(() => {
+                    isDeleting = true;
+                    setTimeout(typeEffect, deletingSpeed);
+                }, pauseTime);
+            } else if (isDeleting && charIndex < 0) {
+                // Move to next tagline
+                isDeleting = false;
+                index = (index + 1) % taglines.length;
+                setTimeout(typeEffect, typingSpeed);
+            }
+        }
+
+        typeEffect(); // Start the typewriter effect
+
+        // Particle generation
+        const particlesContainer = document.querySelector(".particles");
+        function createParticle() {
+            const particle = document.createElement("div");
+            particle.classList.add("particle");
+            particle.style.left = `${Math.random() * 100}vw`; // Random x-position
+            particle.style.animationDuration = `${8 + Math.random() * 4}s`; // Random duration 8-12s
+            particle.style.transform = `translateX(${Math.random() * 20 - 10}px)`; // Slight horizontal drift
+            particlesContainer.appendChild(particle);
+            setTimeout(() => particle.remove(), 12000); // Remove after animation
+        }
+
+        // Spawn particles every 150ms
+        setInterval(createParticle, 150);
+    </script>
+</body>
+</html>
