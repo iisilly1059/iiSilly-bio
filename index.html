@@ -183,8 +183,41 @@
             filter: brightness(0) saturate(100%) invert(100%); /* White on hover */
         }
 
+        /* Gaming stats widget */
+        .gaming-stats {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(128, 0, 255, 0.7);
+            max-width: 200px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .gaming-stats h3 {
+            color: #8000ff;
+            margin-top: 0;
+        }
+        .gaming-stats button {
+            background: #8000ff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .gaming-stats button:hover {
+            background: #ffffff;
+            color: #8000ff;
+        }
+
         /* Responsive design for smaller screens */
-        @media (max-width: 400px) {
+        @media (max-width: 800px) {
             .content {
                 padding: 15px;
                 margin: 10px;
@@ -195,6 +228,12 @@
             .avatar {
                 width: 120px;
                 height: 120px;
+            }
+            .gaming-stats {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                max-width: none;
             }
         }
     </style>
@@ -217,6 +256,14 @@
                 <img src="https://i.imgur.com/GoeiaOf.png" alt="Petezahgames Icon">
             </a>
         </div>
+    </div>
+    <div class="gaming-stats">
+        <h3>Deadshot.io Stats</h3>
+        <p>K/D Ratio: <span id="kd">6</span></p>
+        <p>Wins: <span id="wins">741</span></p>
+        <p>Headshots: <span id="headshots">77%</span></p>
+        <p>Last Updated: <span id="updated">Today</span></p>
+        <button onclick="updateStats()">Refresh Stats</button>
     </div>
     <script>
         const taglines = ["Gamer", "Coder", "Creative", "Talented"];
@@ -275,6 +322,28 @@
 
         // Spawn particles every 150ms
         setInterval(createParticle, 150);
+
+        // Stats update function
+        function updateStats() {
+            // Replace these with your new Deadshot.io stats when you want to update
+            document.getElementById('kd').textContent = '6'; // Example: Your new K/D
+            document.getElementById('wins').textContent = '741';
+            document.getElementById('headshots').textContent = '77%';
+            document.getElementById('updated').textContent = new Date().toLocaleDateString();
+            // Save to localStorage for persistence
+            localStorage.setItem('deadshotKD', '6');
+            localStorage.setItem('deadshotWins', '741');
+            localStorage.setItem('deadshotHeadshots', '77%');
+            localStorage.setItem('deadshotUpdated', new Date().toLocaleDateString());
+        }
+
+        // Load saved stats on page load
+        window.addEventListener('load', () => {
+            document.getElementById('kd').textContent = localStorage.getItem('deadshotKD') || '6';
+            document.getElementById('wins').textContent = localStorage.getItem('deadshotWins') || '741';
+            document.getElementById('headshots').textContent = localStorage.getItem('deadshotHeadshots') || '77%';
+            document.getElementById('updated').textContent = localStorage.getItem('deadshotUpdated') || '10/12/2025';
+        });
     </script>
 </body>
 </html>
