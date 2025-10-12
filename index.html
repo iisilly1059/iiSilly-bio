@@ -216,6 +216,50 @@
             color: #8000ff;
         }
 
+        /* Project showcase widget */
+        .project-showcase {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(128, 0, 255, 0.7);
+            max-width: 250px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .project-showcase h3 {
+            color: #8000ff;
+            margin-top: 0;
+            text-align: center;
+        }
+        .project-showcase p {
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .project-showcase button {
+            background: #8000ff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .project-showcase button:hover {
+            background: #ffffff;
+            color: #8000ff;
+        }
+        .project-showcase img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid #8000ff;
+            margin-bottom: 10px;
+        }
+
         /* Responsive design for smaller screens */
         @media (max-width: 800px) {
             .content {
@@ -229,7 +273,7 @@
                 width: 120px;
                 height: 120px;
             }
-            .gaming-stats {
+            .gaming-stats, .project-showcase {
                 position: static;
                 transform: none;
                 margin: 20px auto;
@@ -240,6 +284,11 @@
 </head>
 <body>
     <div class="particles"></div>
+    <div class="project-showcase">
+        <h3>Priceless Education</h3>
+        <p>🎮 A google sites project ment for playing games in school unblocked!</p>
+        <button onclick="window.open('https://sites.google.com/view/priceless-education', '_blank')">Visit Site</button>
+    </div>3
     <div class="content">
         <h1>👋 <span class="gradient-text">Hey, I'm iiSilly!</span></h1>
         <p>🎮 Gaming enthusiast who loves diving into intense sessions of COD and competitive modern FPS games!</p>
